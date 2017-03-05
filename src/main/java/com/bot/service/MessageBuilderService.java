@@ -2,6 +2,7 @@ package com.bot.service;
 
 import com.bot.model.ovvatv.Program;
 import com.bot.model.ovvatv.ProgramsData;
+import com.bot.model.ovvatv.VideoCard;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -26,5 +27,13 @@ public class MessageBuilderService {
         }
 
         return programBuilder.toString();
+    }
+
+    public String buildTelecastMessage(VideoCard videoCard) {
+        String title = videoCard.getTitle();
+        String image = videoCard.getImage().getPreview();
+        String video = videoCard.getIframeSrc();
+
+        return title;
     }
 }

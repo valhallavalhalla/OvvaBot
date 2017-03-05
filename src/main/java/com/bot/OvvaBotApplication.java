@@ -32,33 +32,33 @@ public class OvvaBotApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OvvaBotApplication.class, args);
 
-		GetUpdatesResponse updatesResponse;
-		int j = 0;
-		while (true) {
-			try {
-				updatesResponse = bot.execute(new GetUpdates().offset(j).limit(100).timeout(20));
-				List<Update> updates = updatesResponse.updates();
-				for (int z = 0; z < updates.size(); z++) {
-					j = updates.get(z).updateId() + 1;
-					Message message = updates.get(z).message();
-					//
-					Chat chat = message.chat();
-					User user = message.from();
-					String mes = message.text();
-
-					processText(user.id(), mes);
-
-					// Base64.getEncoder().encodeToString(s.getBytes(StandardCharsets.UTF_8));
-					if (message.text() != null) {
-						System.out.println("New message: " + message.text() + " id: " +
-								message.messageId() + " from " + chat);
-					}
-
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+//		GetUpdatesResponse updatesResponse;
+//		int j = 0;
+//		while (true) {
+//			try {
+//				updatesResponse = bot.execute(new GetUpdates().offset(j).limit(100).timeout(20));
+//				List<Update> updates = updatesResponse.updates();
+//				for (int z = 0; z < updates.size(); z++) {
+//					j = updates.get(z).updateId() + 1;
+//					Message message = updates.get(z).message();
+//					//
+//					Chat chat = message.chat();
+//					User user = message.from();
+//					String mes = message.text();
+//
+//					processText(user.id(), mes);
+//
+//					// Base64.getEncoder().encodeToString(s.getBytes(StandardCharsets.UTF_8));
+//					if (message.text() != null) {
+//						System.out.println("New message: " + message.text() + " id: " +
+//								message.messageId() + " from " + chat);
+//					}
+//
+//				}
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 
 	private static void processText(Integer id, String mes) {
