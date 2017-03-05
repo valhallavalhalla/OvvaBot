@@ -13,8 +13,8 @@ import java.time.LocalDate;
 public class OvvaService {
 
     private static final String OVVA_TV_URL = "https://api.ovva.tv/v2/" ;
-    @Autowired
-    private RestTemplate restTemplate;
+
+    private RestTemplate restTemplate = new RestTemplate();
 
     public ProgramsData getProgramsData(Language language, Channel channel, LocalDate localDate) {
         String url = OVVA_TV_URL + language.getValue() + "/tvguide/"
@@ -59,7 +59,7 @@ public class OvvaService {
         String url = OVVA_TV_URL + language.getValue() + "/search/project/?query=" + query;
         ResponseEntity<SearchResponse> responseEntity = restTemplate.getForEntity(url, SearchResponse.class);
         if (responseEntity.getStatusCode().equals(HttpStatus.OK)) {
-            return responseEntity.getBody().getData().getResults().get(0).getId();
+                return responseEntity.getBody().getData().getResults().get(0).getId();
         } else {
             throw new RuntimeException("Can't get project id! Request to API failed!");
         }

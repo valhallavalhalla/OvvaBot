@@ -2,12 +2,12 @@ package com.bot.model.ovvatv;
 
 public enum Channel {
 
-    ONE_PLUS_ONE("1plus1", 1),
-    TWO_PLUS_TWO("2plus2", 2),
-    TET("tet", 3),
-    TSN_SURDO("tsnsurdo", 11),
-    SPORT_ONE("sport1", 12),
-    ONE_PLUS_ONE_IN("1plus1in", 14);
+    ONE_PLUS_ONE("1+1", 1),
+    TWO_PLUS_TWO("2+2", 2),
+    TET("TET", 3),
+    TSN_SURDO("ТСН з сурдоперекладом", 11),
+    SPORT_ONE("Спорт 1", 12),
+    ONE_PLUS_ONE_IN("1+1 International", 14);
 
     private final String name;
     private final Integer id;

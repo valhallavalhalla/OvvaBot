@@ -23,7 +23,7 @@ public class MessageBuilderService {
             Instant instant = Instant.ofEpochSecond(date.getTime());
             LocalTime res = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalTime();
             String programTimeStart = res.toString();
-            programBuilder.append(programTimeStart + "\t" + program.getTitle() + "\n");
+            programBuilder.append(programTimeStart).append("\t | \t").append(program.getTitle()).append("\n");
         }
 
         return programBuilder.toString();
@@ -31,9 +31,9 @@ public class MessageBuilderService {
 
     public String buildTelecastMessage(VideoCard videoCard) {
         String title = videoCard.getTitle();
-        String image = videoCard.getImage().getPreview();
+        String subtitle = videoCard.getSubtitle();
         String video = videoCard.getIframeSrc();
 
-        return title;
+        return video + "a=1&pl=1";
     }
 }
